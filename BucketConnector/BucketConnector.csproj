@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputType>Library</OutputType>
+
+        <!-- Informações do pacote NuGet -->
+        <PackageId>BucketConnector</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Gustavo Martins Moreira</Authors>
+        <Company>Mega News</Company>
+        <Description>Conector que utiliza recursos do Amazon S3 connector para operar em um bucket.</Description>
+        <PackageTags>csharp;nuget;biblioteca</PackageTags>
+        <PackageProjectUrl>https://github.com/meganewsopensource/BucketConnector</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/meganewsopensource/BucketConnector</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AWSSDK.S3" Version="3.7.415.17" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include=".github\workflows\nuget-publish.yml" />
+    </ItemGroup>
+</Project>
