@@ -2,9 +2,14 @@ name: Publish NuGet Package
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v.1.0.0'
-
+  pull_request:
+    types: [ closed ]
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
