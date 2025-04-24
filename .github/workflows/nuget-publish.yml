@@ -23,6 +23,15 @@ jobs:
         with:
           dotnet-version: '8.0'
 
+      - name: Instalar GitVersion
+        uses: GitTools/actions/gitversion/setup@v0.9.14
+        with:
+          versionSpec: '5.x'
+
+      - name: Rodar GitVersion
+        id: gitversion
+        uses: GitTools/actions/gitversion/execute@v0.9.14
+        
       - name: Restaurar dependências
         run: dotnet restore
 
@@ -30,7 +39,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Empacotar NuGet
-        run: dotnet pack --configuration Release -p:PackageVersion=${{ github.ref_name }} -o ./nupkg
+        run: dotnet pack --configuration Release -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }} -o ./nupkg
 
       - name: Publicar no NuGet
         run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
