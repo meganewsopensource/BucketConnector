@@ -16,9 +16,12 @@
         <PackageProjectUrl>https://github.com/meganewsopensource/BucketConnector</PackageProjectUrl>
         <RepositoryUrl>https://github.com/meganewsopensource/BucketConnector</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
+        <None Remove=".github\**\*" />
         <PackageReference Include="AWSSDK.S3" Version="3.7.415.17" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.3" />
     </ItemGroup>
